@@ -7,42 +7,11 @@ import { useTheme } from '@emotion/react';
 import {Box, Typography} from '@mui/material';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {BsFillShareFill} from 'react-icons/bs';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
 
 
-function PostComponent() {
+function PostComponent(props) {
+  const {title,body,postImage} = props;
   const theme = useTheme();
-
-  const [body,setBody] = useState('');
-  const [title,setTitle] = useState('');
-  const [id,setId] = useState('1');
-  const [postImage,setPostImage] = useState('');
-
-
-  useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-    .then(res => {
-      console.log(res);
-      setBody(res.data.body);
-      setTitle(res.data.title);
-      setId(res.data.id);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  },[id]);
-
-    useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/photos/${id}`)
-    .then(res => {  
-      setPostImage(res.data.url);
-    })
-    .catch(err => {
-      console.log(err);
-    });   
-  
-  },[id]);
 
   const ButtonColor = theme.palette.secondary['500'];
   return (
@@ -54,7 +23,7 @@ function PostComponent() {
         image={postImage}
       />
     <CardActions>
-        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems:'center' }}>
           <IconButton color='primary'><AiOutlineHeart/></IconButton>
           <IconButton color='primary'><BsFillShareFill/></IconButton>
         </Box>
@@ -67,9 +36,6 @@ function PostComponent() {
           {body}
         </Typography>
       </CardContent>
-
-
-
     </Card>
   );
 }
