@@ -1,8 +1,18 @@
 import React from 'react'
+import PostComponent from './components/PostComponent'
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import {theme} from './Theme.js';
+
+const themeDes = createTheme(theme);
 
 function App() {
   return (
-    <div>App setup ready!</div>
+    <ThemeProvider theme={themeDes}>
+    <div>
+      <PostComponent/>
+    </div>
+    </ThemeProvider>
   )
 }
 
