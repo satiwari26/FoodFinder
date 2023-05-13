@@ -1,4 +1,6 @@
 import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+import { ref, uploadString, getDownloadURL } from 'firebase/storage';
+import { firebase, storage } from './firebaseConfig';
 
 const firestore = getFirestore();
 
