@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import {theme} from './Theme.js';
 import { app, analytics, db, storage } from './firebase/firebaseConfig';
-
+import { addPost, getPost } from './firebase/firebaseAPI';
 
 const themeDes = createTheme(theme);
 
