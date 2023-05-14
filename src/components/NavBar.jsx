@@ -16,10 +16,12 @@ import {GiCarrot} from 'react-icons/gi';
 
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { Link } from 'react-router-dom';
 
 
 
-const pages = ['Home', 'Resources', 'ABout US', 'Create New Post'];
+// const pages = ['Home', 'Resources', 'AboutUs', 'Create New Post'];
+const pages = ['Home', 'Resources', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({
@@ -89,8 +91,8 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -173,14 +175,21 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                // onClick={handleCloseNavMenu}
+                // sx={{ my: 2, color: 'white', display: 'block' }}
+                component={Link}
+                to={`/${page.toLowerCase()}`}
+                sx={{
+                  mx: 1,
+                  color: 'white',
+                  display: 'block',
+                  textTransform: 'capitalize',
+                }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
