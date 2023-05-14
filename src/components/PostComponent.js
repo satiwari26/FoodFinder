@@ -13,7 +13,7 @@ function PostComponent(props) {
   const {title,body,postImage} = props;
   const theme = useTheme();
   return (
-    <Card sx = {{maxWidth: 600, backgroundColor: '#e6f4ff', m:'10px'}} >
+    <Card sx = {{maxWidth: 700, backgroundColor: '#e6f4ff', m:'10px'}} >
        <CardMedia
         component="img"
         alt="post image"
