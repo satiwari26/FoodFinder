@@ -9,7 +9,7 @@ import {ImNext} from 'react-icons/im';
 import {BsFillPauseBtnFill, BsPauseBtnFill, BsPlayBtnFill} from 'react-icons/bs';
 import {BsFillPlayBtnFill} from 'react-icons/bs';
 
-export default function ResourcesPage() {
+export default function ResourcesPage() { //each element in the array is an object with an image and a link and a paragraph
     const images = [
         {
           image: '/images/foodpantry.png',
@@ -28,20 +28,20 @@ export default function ResourcesPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  useEffect(() => {
-    let interval = null;
+  // useEffect(() => {
+  //   let interval = null;
 
-    if (isPlaying) {
-      // Automatic image scrolling every 3 seconds
-      interval = setInterval(() => {
-        setCurrentIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 3000);
-    }
+  //   if (isPlaying) {
+  //     // Automatic image scrolling every 10 seconds
+  //     interval = setInterval(() => {
+  //       setCurrentIndex((prevIndex) =>
+  //         prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //       );
+  //     }, 10000);
+  //   }
 
-    return () => clearInterval(interval);
-  }, [isPlaying, images.length]);
+  //   return () => clearInterval(interval);
+  // }, [isPlaying, images.length]);
 
   const goToNextImage = () => {
     setCurrentIndex((prevIndex) =>
