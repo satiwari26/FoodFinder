@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import { theme } from './Theme.js';
 import NavBar from './components/NavBar';
-import ResourcesPage from './pages/resources/Resources_nikhil.jsx';
+import ResourcesPage from './pages/resources/Resources_Final.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import PostPage from './pages/PostPage.jsx';
 
