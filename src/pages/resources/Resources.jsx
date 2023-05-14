@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
-import "./Resources.css";
-/**
- * details local resources for students
- * will contain 3 images of local student resources
- * The images, upon clicking them, link to the resource's
- * @returns 
- */
+import React, { useState, useEffect, useRef } from 'react';
+
 export default function Resources() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const intervalRef = useRef(null);
 
   const handlePrevClick = () => {
-    setActiveIndex((prevIndex) => prevIndex === 0 ? 2 : prevIndex - 1);
+    setActiveIndex((prevIndex) => {
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(handleNextClick, 10000);
+      return prevIndex === 0 ? 2 : prevIndex - 1;
+    });
   };
 
   const handleNextClick = () => {
-    setActiveIndex((prevIndex) => prevIndex === 2 ? 0 : prevIndex + 1);
+    setActiveIndex((prevIndex) => {
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(handleNextClick, 10000);
+      return prevIndex === 2 ? 0 : prevIndex + 1;
+    });
   };
+
+  useEffect(() => {
+    intervalRef.current = setInterval(handleNextClick, 10000);
+    return () => clearInterval(intervalRef.current);
+  }, [handleNextClick]);
 
   return (
     <>
