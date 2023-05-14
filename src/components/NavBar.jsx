@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 import { blueGrey } from '@mui/material/colors';
 
 // const pages = ['Home', 'Resources', 'AboutUs', 'Create New Post'];
-const pages = ['Home', 'Resources', 'About'];
+const pages = ['Home', 'Resources', 'About', 'create-post'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({

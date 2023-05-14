@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ResourcesPage from './pages/resources/Resources_Final.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import PostPage from './pages/PostPage.jsx';
+import CreateEvent from './components/CreateEvent.jsx';
 
 const themeDes = createTheme(theme);
 
@@ -20,8 +21,8 @@ function App() {
           <Route path="/home" element={<PostPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/create-post" element={<PostPage />} />
-            <Route path="/" element={<PostPage />} />
+            <Route path="/create-post" element={<CreateEvent />} />
+            <Route path = "/" element = {<PostPage/>}/>
           </Routes>
         </Box>
       </BrowserRouter>
