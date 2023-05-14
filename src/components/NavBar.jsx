@@ -17,6 +17,7 @@ import {GiCarrot} from 'react-icons/gi';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { Link } from 'react-router-dom';
+import { blueGrey } from '@mui/material/colors';
 
 // const pages = ['Home', 'Resources', 'AboutUs', 'Create New Post'];
 const pages = ['Home', 'Resources', 'About'];
@@ -85,12 +86,14 @@ function ResponsiveAppBar() {
     <AppBar position="static" sx = {{backgroundColor: '#014E5F'}}>
       <Container maxWidth="l">
         <Toolbar disableGutters>
+        <Typography variant='h2' marginRight='10px'>
         <GiCarrot/>
+        </Typography>
           <Typography
             variant="h6"
             noWrap
             component={Link}
-            to="/"
+            to={`/`}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -146,7 +149,8 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" key={page} component={Link}   color={blueGrey[600]}
+                to={`/${page.toLowerCase()}`}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -173,8 +177,6 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                // onClick={handleCloseNavMenu}
-                // sx={{ my: 2, color: 'white', display: 'block' }}
                 component={Link}
                 to={`/${page.toLowerCase()}`}
                 sx={{
@@ -184,7 +186,7 @@ function ResponsiveAppBar() {
                   textTransform: 'capitalize',
                 }}
               >
-                {page}
+                <Typography variant='h5'>{page}</Typography>
               </Button>
             ))}
           </Box>
@@ -212,7 +214,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" color={blueGrey[600]}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

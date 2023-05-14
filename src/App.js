@@ -21,6 +21,7 @@ function App() {
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/create-post" element={<PostPage />} />
+            <Route path="/" element={<PostPage />} />
           </Routes>
         </Box>
       </BrowserRouter>
