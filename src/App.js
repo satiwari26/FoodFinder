@@ -8,6 +8,7 @@ import { addPost, getPost } from './firebase/firebaseAPI';
 import PostPage from './pages/PostPage';
 import NavBar from './components/NavBar';
 import { Box } from '@mui/system';
+import Resources from './pages/resources/Resources';
 
 const themeDes = createTheme(theme);
 
@@ -17,7 +18,7 @@ function App() {
     <div >
     <Box sx={{background: 'linear-gradient(to right,#F5F5F5,#E0E0E0)'}}>
     <NavBar/>
-      <PostPage/>
+      <Resources/>
     </Box>
     </div>
     </ThemeProvider>

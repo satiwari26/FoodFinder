@@ -6,19 +6,19 @@
     margin: 0;
   }
   
-  .carousel {
+  .resources__wrapper {
     width: 100vw;
     height: 100vh;
     position: relative;
   }
   
-  .carousel > ul {
+  .resources__wrapper > ul {
     margin: 0;
     padding: 0;
     list-style: none;
   }
   
-  .slide {
+  .resources__item {
     position: absolute;
     inset: 0;
     opacity: 0;
@@ -26,7 +26,7 @@
     transition-delay: 200ms;
   }
   
-  .slide > img {
+  .resources__item > img {
     display: block;
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@
     object-position: center;
   }
   
-  .slide[data-active] {
+  .resources__item[data-active] {
     opacity: 1;
     z-index: 1;
     transition-delay: 0ms;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './Resources.css';
 
 export default function Resources() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,27 +30,30 @@ export default function Resources() {
     <>
       <div className="resources">
         <div className="resources__container">
+            <p className="resources__title">List of Cal Poly Resources!</p>
           <div className="resources__wrapper">
             <button className="carousel-button prev" onClick={handlePrevClick}>&#8656;</button>
             <button className="carousel-button next" onClick={handleNextClick}>&#8658;</button>
             <ul className="resources__items">
-              <li className={`resources__item ${activeIndex === 0 ? 'active' : ''}`}>
+              <li className={`resources__item ${activeIndex === 0 ? 'data-active' : ''}`}>
                 <a href="https://basicneeds.calpoly.edu/foodpantry">
                   <img src="/images/foodpantry.png" alt="Food Pantry" />
                 </a>
               </li>
-              <li className={`resources__item ${activeIndex === 1 ? 'active' : ''}`}>
+              <li className={`resources__item ${activeIndex === 1 ? 'data-active' : ''}`}>
                 <a href="https://www.frontporchslo.org">
                   <img src="/images/frontporch.png" alt="Front Porch" />
                 </a>
               </li>
-              <li className={`resources__item ${activeIndex === 2 ? 'active' : ''}`}>
+              <li className={`resources__item ${activeIndex === 2 ? 'data-active' : ''}`}>
                 <a href="https://chw.calpoly.edu">
                   <img src="/images/healthcenter.png" alt="Cal Poly Health Center" />
                 </a>
               </li>
             </ul>
           </div>
+          <p className="resources__description"> activeIndex: {activeIndex} </p>
+
         </div>
       </div>
     </>
