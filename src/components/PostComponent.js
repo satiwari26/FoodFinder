@@ -12,18 +12,16 @@ import {BsFillShareFill} from 'react-icons/bs';
 function PostComponent(props) {
   const {title,body,postImage} = props;
   const theme = useTheme();
-
-  const ButtonColor = theme.palette.secondary['500'];
   return (
-    <Card sx = {{maxWidth: 600} } >
+    <Card sx = {{maxWidth: 600, backgroundColor: '#e6f4ff', m:'10px'}} >
        <CardMedia
         component="img"
         alt="post image"
         height="240"
         image={postImage}
       />
-    <CardActions>
-        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems:'center' }}>
+    <CardActions >
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems:'center' , flexGrow: '1'}}>
           <IconButton color='primary'><AiOutlineHeart/></IconButton>
           <IconButton color='primary'><BsFillShareFill/></IconButton>
         </Box>
@@ -32,7 +30,7 @@ function PostComponent(props) {
         <Typography gutterBottom variant="h3" component="div" color="primary">
           {title}
         </Typography>
-        <Typography variant="body1" color="secondary">
+        <Typography variant="body1" color="#014E5F">
           {body}
         </Typography>
       </CardContent>
