@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider theme={themeDes}>
     <div >
-    <Box sx={{backgroundColor: '#212121'}}>
+    <Box sx={{background: 'linear-gradient(to right,#F5F5F5,#E0E0E0)'}}>
     <NavBar/>
       <PostPage/>
     </Box>

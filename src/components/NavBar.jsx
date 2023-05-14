@@ -10,10 +10,57 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {GiHamburgerMenu} from 'react-icons/gi';
+import {AiOutlineSearch} from 'react-icons/ai';
+import {GiCarrot} from 'react-icons/gi';
+
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+
 
 
 const pages = ['Home', 'Resources', 'ABout US', 'Create New Post'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: 0,
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+  }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 1),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+  
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: '20ch',
+      },
+    },
+  }));
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -35,10 +82,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx = {{backgroundColor: '#757575'}}>
+    <AppBar position="static" sx = {{backgroundColor: '#014E5F'}}>
       <Container maxWidth="l">
         <Toolbar disableGutters>
-
+        <GiCarrot/>
           <Typography
             variant="h6"
             noWrap
@@ -65,9 +112,20 @@ function ResponsiveAppBar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-            >
-           
+            >         
+            <GiHamburgerMenu/>
             </IconButton>
+            
+            <Search >
+            <SearchIconWrapper>
+              <AiOutlineSearch/>
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+            </Search>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -110,7 +168,6 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
